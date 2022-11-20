@@ -1,0 +1,19 @@
+<h1>首頁</h1>
+
+<%= link_to "新增店家", new_shop_path %>
+
+<table>
+    <tr>
+        <td>店鋪名稱</td>
+        <td>編輯店鋪資訊</td>
+        <td>我要移除店鋪</td>
+    </tr>
+
+    <% @shops.each do |shop| %>
+    <tr>
+        <td><%= link_to shop.brand, shop_path(shop) %></td>
+        <td><%= link_to "編輯", edit_shop_path(shop) %></td>
+        <td><%= link_to "刪除", shop_path(shop), method: "delete", data: {confirm: "確定要刪除店家嗎？"} %></td>
+    </tr>
+    <% end %>
+</table>

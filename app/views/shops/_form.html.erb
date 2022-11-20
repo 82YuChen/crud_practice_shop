@@ -1,0 +1,29 @@
+<% if shop.errors.any? %>
+
+    <ul>
+        <% shop.errors.full_messages.each do |message| %>
+        <li> <%= message %> </li>
+        <% end %>
+    </ul>
+
+<% end%>
+
+<%= form_for(shop) do |form| %>
+
+  <div>
+    <%= form.label :brand %>
+    <%= form.text_field :brand %>
+  </div>
+
+  <div>
+    <%= form.label :product %>
+    <%= form.text_field :product %>
+  </div>
+
+  <div>
+    <%= form.label :amount %>
+    <%= form.text_field :amount %>
+  </div>
+
+  <%= form.submit "送出" %>
+<% end %>
